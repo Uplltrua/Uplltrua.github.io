@@ -1,6 +1,6 @@
 var now = new Date();
 function createtime() {
-  var grt = new Date("12/31/2023 00:00:00");
+  var grt = new Date("12/31/2023 23:59:59");
   now.setTime(now.getTime() + 250);
   var days = (now - grt) / 1e3 / 60 / 60 / 24,
     dnum = Math.floor(days),
@@ -18,6 +18,7 @@ function createtime() {
     hnum < 18 && hnum >= 9
       ? `<span class='textTip'> <br> 本站居然运行了 ${dnum} 天</span><span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span> <i class='fas fa-heartbeat' style='color:red'></i>`
       : `<span class='textTip'> <br> 本站居然运行了 ${dnum} 天</span><span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span> <i class='fas fa-heartbeat' style='color:red'></i>`),
+
     document.getElementById("workboard") && (document.getElementById("workboard").innerHTML = currentTimeHtml);
 }
 setInterval(() => {
